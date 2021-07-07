@@ -1,0 +1,66 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "lenskit-hpf"
+author = "Michael Ekstrand"
+author-email = "michaelekstrand@boisestate.edu"
+home-page = "https://hpf.lenskit.org"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+]
+requires-python = ">= 3.7"
+description-file = "README.md"
+requires = [
+    "lenskit >0.13",
+    "hpfrec"
+]
+
+[tools.flit.metadata.requires-xtra]
+test = [
+    "pytest >= 6",
+    "pytest-doctestplus >= 0.9",
+    "hypothesis >= 6"
+]
+dev = [
+    "flit >= 3",
+    "packaging >= 20",
+    "flake8 >= 3",
+    "coverage >= 5",
+    "pytest-cov >= 2.12",
+    "ipython >= 7",
+    "docopt >= 0.6",
+    "tqdm >= 4",
+    "sphinx-autobuild >= 2021",
+]
+doc = [
+    "sphinx >= 3",
+    "sphinx_rtd_theme >= 0.5",
+]
+
+[tool.flit.sdist]
+exclude = [
+    ".github",
+    "*.ipynb",
+    "doc",
+    "data",
+    "examples",
+    "build-tools",
+    "tests",
+]
+
+[tool.envtool.conda]
+name = "lkpy"
+channels = [
+    "conda-forge"
+]
+
+[tool.envtool.conda.overrides]
+hpfrec = "$pip"
