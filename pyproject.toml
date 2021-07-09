@@ -21,7 +21,9 @@ requires-python = ">= 3.7"
 description-file = "README.md"
 license = "MIT"
 requires = [
-    "lenskit >0.13",
+    "pandas >= 1.0",
+    "numba ==0.53.*",
+    "lenskit @ https://github.com/lenskit/lkpy.git#main",
     "hpfrec"
 ]
 
