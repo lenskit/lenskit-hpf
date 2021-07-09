@@ -25,11 +25,14 @@ requires = [
     "hpfrec"
 ]
 
-[tools.flit.metadata.requires-extra]
+[tool.flit.metadata.urls]
+Documentation = "https://lkpy.lenskit.org/en/stable/hpfrec"
+GitHub = "https://github.com/lenskit/lenskit-hpf"
+
+[tool.flit.metadata.requires-extra]
 test = [
     "pytest >= 6",
     "pytest-doctestplus >= 0.9",
-    "hypothesis >= 6"
 ]
 dev = [
     "flit >= 3",
@@ -37,10 +40,6 @@ dev = [
     "flake8 >= 3",
     "coverage >= 5",
     "pytest-cov >= 2.12",
-    "ipython >= 7",
-    "docopt >= 0.6",
-    "tqdm >= 4",
-    "sphinx-autobuild >= 2021",
 ]
 
 [tool.flit.sdist]
