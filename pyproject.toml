@@ -21,13 +21,11 @@ requires-python = ">= 3.7"
 description-file = "README.md"
 license = "MIT"
 requires = [
-    "pandas >= 1.0",
-    "numba ==0.53.*",
     "lenskit @ https://github.com/lenskit/lkpy.git#main",
     "hpfrec"
 ]
 
-[tools.flit.metadata.requires-xtra]
+[tools.flit.metadata.requires-extra]
 test = [
     "pytest >= 6",
     "pytest-doctestplus >= 0.9",
@@ -43,10 +41,6 @@ dev = [
     "docopt >= 0.6",
     "tqdm >= 4",
     "sphinx-autobuild >= 2021",
-]
-doc = [
-    "sphinx >= 3",
-    "sphinx_rtd_theme >= 0.5",
 ]
 
 [tool.flit.sdist]
@@ -66,7 +60,13 @@ channels = [
     "conda-forge"
 ]
 
+[tool.envtool.conda.extras]
+".none" = [
+    "numba =0.53",
+    "pandas =1.2",
+    "csr >=0.4"
+    "scipy",
+]
+
 [tool.envtool.conda.overrides]
-hpfrec = {
-    source = "$pip"
-}
+hpfrec = { source = "$pip" }
