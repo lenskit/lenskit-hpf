@@ -3,7 +3,8 @@ requires = ["flit_core >=2,<4"]
 build-backend = "flit_core.buildapi"
 
 [tool.flit.metadata]
-module = "lenskit-hpf"
+module = "lenskit_hpf"
+dist-name = "lenskit-hpf"
 author = "Michael Ekstrand"
 author-email = "michaelekstrand@boisestate.edu"
 home-page = "https://hpf.lenskit.org"
