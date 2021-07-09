@@ -1,3 +1,8 @@
+"""
+Hierarchical Poisson factorization for LensKit.
+"""
+
 __version__ = '0.14.0'
 
-from .hpf import HPF  # noqa: F401
+if __name__ == 'lenskit_hpf':
+    from .hpf import HPF  # noqa: F401
