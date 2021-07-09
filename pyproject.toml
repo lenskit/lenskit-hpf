@@ -64,9 +64,10 @@ channels = [
 ".none" = [
     "numba =0.53",
     "pandas =1.2",
-    "csr >=0.4"
+    "csr >=0.4",
+    "cython",
     "scipy",
 ]
 
 [tool.envtool.conda.overrides]
-hpfrec = { source = "$pip" }
+hpfrec = { source = "pip" }
