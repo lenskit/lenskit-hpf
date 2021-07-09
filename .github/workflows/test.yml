@@ -33,11 +33,6 @@ jobs:
         python-version: ${{ matrix.python }}
         conda-channels: conda-forge
 
-    - name: Inspect environment
-      run: |
-        conda info
-        conda info -s
-
     - name: Set up dependencies
       run: |
         conda install -qy flit-core packaging pyyaml

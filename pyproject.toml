@@ -21,7 +21,7 @@ requires-python = ">= 3.7"
 description-file = "README.md"
 license = "MIT"
 requires = [
-    "lenskit @ https://github.com/lenskit/lkpy.git#main",
+    "lenskit @ git+https://github.com/lenskit/lkpy.git#main",
     "hpfrec"
 ]
 
