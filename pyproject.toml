@@ -65,4 +65,6 @@ channels = [
 ]
 
 [tool.envtool.conda.overrides]
-hpfrec = "$pip"
+hpfrec = {
+    source = "$pip"
+}
