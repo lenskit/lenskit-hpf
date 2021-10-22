@@ -1,4 +1,4 @@
-project = 'LensKit'
+project = 'LensKit HPF'
 copyright = '2021 Boise State University'
 author = 'Michael D. Ekstrand'
 
