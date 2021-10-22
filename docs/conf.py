@@ -2,6 +2,8 @@ project = 'LensKit'
 copyright = '2021 Boise State University'
 author = 'Michael D. Ekstrand'
 
+import lenskit_hpf
+
 # The short X.Y version
 version = '.'.join(lenskit_hpf.__version__.split('.')[:2])
 # The full version, including alpha/beta/rc tags
