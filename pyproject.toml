@@ -1,13 +1,10 @@
 [build-system]
-requires = ["flit_core >=2,<4"]
+requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
-[tool.flit.metadata]
-module = "lenskit_hpf"
-dist-name = "lenskit-hpf"
-author = "Michael Ekstrand"
-author-email = "michaelekstrand@boisestate.edu"
-home-page = "https://hpf.lenskit.org"
+[project]
+name = "lenskit-hpf"
+authors = { name = "Michael Ekstrand", email = "michaelekstrand@boisestate.edu" }
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -17,19 +14,20 @@ classifiers = [
     "Operating System :: OS Independent",
     "Intended Audience :: Science/Research",
 ]
+readme = "README.md"
+license = { file="LICENSE.md" }
 requires-python = ">= 3.7"
-description-file = "README.md"
-license = "MIT"
-requires = [
+dependencies = [
     "lenskit[doc] @ git+https://github.com/lenskit/lkpy.git#main",
     "hpfrec"
 ]
+dynamic = ["description", "version"]
 
-[tool.flit.metadata.urls]
-Documentation = "https://lkpy.lenskit.org/en/stable/hpfrec"
+[project.urls]
+homepage = "https://lkpy.lenskit.org/projects/lenskit-hpf"
 GitHub = "https://github.com/lenskit/lenskit-hpf"
 
-[tool.flit.metadata.requires-extra]
+[project.optional-dependencies]
 test = [
     "pytest >= 6",
     "pytest-doctestplus >= 0.9",
@@ -42,31 +40,19 @@ dev = [
     "pytest-cov >= 2.12",
 ]
 
+[tool.flit.module]
+name = "lenskit_hpf"
+
 [tool.flit.sdist]
 exclude = [
     ".github",
     "*.ipynb",
-    "doc",
+    "docs",
     "data",
     "examples",
     "build-tools",
     "tests",
 ]
 
-[tool.envtool.conda]
-name = "lkpy"
-channels = [
-    "conda-forge"
-]
-
-[tool.envtool.conda.extras]
-".none" = [
-    "numba =0.53",
-    "pandas =1.2",
-    "csr >=0.4",
-    "cython",
-    "scipy",
-]
-
-[tool.envtool.conda.overrides]
-hpfrec = { source = "pip" }
+[tool.conda-lock]
+channels = ["conda-forge"]
