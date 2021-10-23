@@ -17,9 +17,9 @@ jobs:
         platform:
         - ubuntu
         python:
-        - 3.7
-        - 3.8
-        - 3.9
+        - "3.7"
+        - "3.8"
+        - "3.9"
 
     steps:
     - uses: actions/checkout@v2
@@ -27,20 +27,15 @@ jobs:
         fetch-depth: 0
         submodules: true
 
-    - name: Prepare Conda environment spec
-      id: conda-lock
-      shell: bash
-      run: |
-        bash lkbuild/lock-for-ci.sh -v $PYVER
-      env:
-        RUNNER: ${{runner.os}}
-        PYVER: ${{matrix.python}}
-
-    - name: Initialize Conda
-      uses: conda-incubator/setup-miniconda@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        activate-environment: lk-hpf
-        environment-file: ${{steps.conda-lock.outputs.environment-file}}
+        python-version: ${{matrix.python}}
+
+    - name: Install Python deps
+      run: |
+        pip install -U flit
+        flit install --pth-file
 
     - name: 🔎 Inspect environment
       run: |
