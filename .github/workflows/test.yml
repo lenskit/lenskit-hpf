@@ -27,30 +27,31 @@ jobs:
         fetch-depth: 0
         submodules: true
 
-    - name: Setup conda
-      uses: s-weigand/setup-conda@v1
-      with:
-        update-conda: true
-        python-version: ${{ matrix.python }}
-        conda-channels: conda-forge
-
-    - name: Set up dependencies
+    - name: Prepare Conda environment spec
+      id: conda-lock
+      shell: bash
       run: |
-        conda install -qy flit-core packaging pyyaml
-        python build-tools/flit-conda.py -E mkl --python-version ${{matrix.python}} --save-env environment.yml
-        cat environment.yml
-        conda env create -q -n lk-hpf -f environment.yml
+        bash lkbuild/lock-for-ci.sh -v $PYVER
+      env:
+        RUNNER: ${{runner.os}}
+        PYVER: ${{matrix.python}}
+
+    - name: Initialize Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        activate-environment: lk-hpf
+        environment-file: ${{steps.conda-lock.outputs.environment-file}}
 
     - name: 🔎 Inspect environment
       run: |
-        conda run -n lk-hpf numba -s
+        numba -s
 
     - name: Run tests
       run: |
-        conda run -n lk-hpf --no-capture-output python -m pytest --cov=lenskit_hpf -v
+        python -m pytest --cov=lenskit_hpf -v
 
     - name: Aggregate coverage data
-      run: conda run -n lk-hpf coverage xml
+      run: coverage xml
 
     - name: Upload coverage
       uses: codecov/codecov-action@v1
