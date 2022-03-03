@@ -13,6 +13,7 @@ classifiers = [
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
     "Operating System :: OS Independent",
     "Intended Audience :: Science/Research",
 ]
@@ -20,8 +21,8 @@ readme = "README.md"
 license = { file="LICENSE.md" }
 requires-python = ">= 3.7"
 dependencies = [
-    "lenskit[doc] @ git+https://github.com/lenskit/lkpy.git#main",
-    "hpfrec"
+    "lenskit==0.14.*",
+    "hpfrec==0.2.*"
 ]
 dynamic = ["description", "version"]
 
@@ -40,6 +41,9 @@ dev = [
     "flake8 >= 3",
     "coverage >= 5",
     "pytest-cov >= 2.12",
+]
+doc = [
+    "lenskit[doc]"
 ]
 
 [tool.flit.module]
