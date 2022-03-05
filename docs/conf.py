@@ -15,11 +15,12 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
-    # 'sphinxcontrib.bibtex',
+    'sphinxcontrib.bibtex',
     'sphinx_rtd_theme',
 ]
 
 html_theme = 'sphinx_rtd_theme'
+bibtex_bibfiles = ['lenskit.bib']
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),

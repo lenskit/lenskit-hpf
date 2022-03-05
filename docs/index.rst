@@ -6,7 +6,7 @@ Hierarchical Poisson Factorization
 This module provides a LensKit bridge to the hpfrec_ library implementing hierarchical Poisson
 factorization :cite:p:`Gopalan2013-ko`.
 
-To install (after we have cut a release), run::
+To install, run::
     
     pip install lenskit-hpf
 
@@ -18,3 +18,8 @@ itself with ``conda``.
 
 .. autoclass:: HPF
     :members:
+
+References
+----------
+
+.. bibliography::
