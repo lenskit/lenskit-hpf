@@ -3,7 +3,7 @@ Hierarchical Poisson factorization for LensKit.
 """
 
 from . import _pt
-__version__ = '0.14.0'
+__version__ = '0.14.1'
 __version__ = _pt.gitify_version(__version__)
 
 if __name__ == 'lenskit_hpf':
