@@ -36,14 +36,17 @@ test = [
     "pytest-doctestplus >= 0.9",
 ]
 dev = [
+    "lenskit-build-helpers >=0.1",
     "flit >= 3",
-    "packaging >= 20",
     "flake8 >= 3",
     "coverage >= 5",
     "pytest-cov >= 2.12",
 ]
 doc = [
-    "lenskit[doc]"
+    "sphinx >= 4.2",
+    "sphinxcontrib-bibtex >= 2.0",
+    "sphinx_rtd_theme >= 0.5",
+    "myst-nb >= 0.13",
 ]
 
 [tool.flit.module]
@@ -61,4 +64,7 @@ exclude = [
 ]
 
 [tool.conda-lock]
-channels = ["conda-forge"]
+channels = [
+    "conda-forge",
+    "lenskit",
+]
