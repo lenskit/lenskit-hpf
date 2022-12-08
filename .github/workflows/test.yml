@@ -28,15 +28,10 @@ jobs:
         fetch-depth: 0
         submodules: true
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - name: Set up Python and environment
+      uses: lenskit/lkbuild/actions/setup-vanilla-env@main
       with:
         python-version: ${{matrix.python}}
-
-    - name: Install Python deps
-      run: |
-        pip install -U flit
-        flit install --pth-file
 
     - name: 🔎 Inspect environment
       run: |
